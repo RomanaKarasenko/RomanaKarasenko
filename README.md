@@ -44,9 +44,6 @@
 
 <br clear="both">
 
-<img src="https://github.com/RomanaKarasenko/RomanaKarasenko/raw/main/snake.svg" alt="Snake animation" />
-
-
 
 
 ###
