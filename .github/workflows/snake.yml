@@ -1,0 +1,29 @@
+name: Generate Snake Animation
+
+on:
+  schedule:
+    # Працює щодня о 00:00 UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate Snake
+        uses: Platane/snk@v2.0.0
+        with:
+          github_user_name: RomanaKarasenko
+          output: snake.svg
+
+      - name: Commit and push Snake
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add -f snake.svg
+          git commit -m "Generate snake.svg"
+          git push
